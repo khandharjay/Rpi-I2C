@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "acc.h"
 
-unsigned int fd; /*file descriptor for the i2c device*/
+ int fd; /*file descriptor for the i2c device*/
 unsigned char temp;
 
 /*Setup the accelerometer on the I2C bus of the RPi*/
@@ -11,7 +11,7 @@ void setup(void)
         ret= wiringPiSetup();
         printf("Return Value is %d\n",ret);
 	/*Setting up the I2C device*/
-	if((fd = wiringPiI2CSetup(0x1D)) < 0 )
+	if((fd = wiringPiI2CSetup(0x07)) < 0 )
 	{	
 		printf("Error in the setup\n");
 	}
